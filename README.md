@@ -5,3 +5,5 @@ Config files, keyboard layout, checklists, ...all the stuff I like to carry from
 ## External Resources
 
 - [Programmer Dvorak with European Keys](https://github.com/asvd/programmer-dvorak-eu)
+- [Darcula VIM color scheme](https://github.com/doums/darcula)
+
