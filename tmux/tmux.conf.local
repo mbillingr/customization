@@ -377,25 +377,25 @@ setw -g pane-base-index 1
 bind \\ split-window -h
 bind - split-window -v
 
-# navigate panes with the hjkl keys like in vim, but remap to progammer dvorak
+# navigate panes with the hjkl keys like in vim, but remap to progammer dvorak and shift to the right
 unbind h
 unbind j
 unbind k
 unbind l
-bind d select-pane -L
-bind h select-pane -D
-bind t select-pane -U
-bind n select-pane -R
+bind h select-pane -L
+bind t select-pane -D
+bind n select-pane -U
+bind s select-pane -R
 
 # window resizing
-bind -r D resize-pane -L 1
-bind -r H resize-pane -D 1
-bind -r T resize-pane -U 1
-bind -r N resize-pane -R 1
+bind -r H resize-pane -L 1
+bind -r T resize-pane -D 1
+bind -r N resize-pane -U 1
+bind -r S resize-pane -R 1
 
 # window selection
-bind -r C-d select-window -t :-
-bind -r C-n select-window -t :+
+bind -r C-h select-window -t :-
+bind -r C-s select-window -t :+
 
 
 # if you don't want Oh my tmux! to alter a binding, use #!important
