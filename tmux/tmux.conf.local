@@ -397,6 +397,11 @@ bind -r S resize-pane -R 1
 bind -r C-h select-window -t :-
 bind -r C-s select-window -t :+
 
+# vi-mode
+bind-key -T copy-mode-vi h send-keys -X cursor-left
+bind-key -T copy-mode-vi t send-keys -X cursor-down
+bind-key -T copy-mode-vi n send-keys -X cursor-up
+bind-key -T copy-mode-vi s send-keys -X cursor-right
 
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind v new-window -c #{pane_current_path} #!important
