@@ -4,8 +4,8 @@ set -e
 WORKDIR=`pwd`
 PREFIX=~
 
-echo "Installing Oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#echo "Installing Oh-my-zsh..."
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Installing Oh-my-tmux..."
 cd $PREFIX
