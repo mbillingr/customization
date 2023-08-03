@@ -24,3 +24,7 @@ ln -s -f $WORKDIR/tmux/tmux.conf.local $PREFIX/.tmux.conf.local
 ln -s -f $WORKDIR/vim/vimrc $PREFIX/.vimrc
 ln -s -f $WORKDIR/vim/vimrc $PREFIX/.config/nvim/init.vim
 ln -s -f $PREFIX/.vim/colors $PREFIX/.config/nvim/colors
+
+echo "installing keyboard layout"
+keyboard/install.sh
+
