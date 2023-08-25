@@ -4,10 +4,14 @@ set -e
 WORKDIR=`pwd`
 PREFIX=~
 
-sudo pacman -S neovim tmux
+sudo pacman -S neovim tmux sway foot bemenu
 
 #echo "Installing Oh-my-zsh..."
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Installing sway..."
+mkdir -p $PREFIX/.config/sway
+ln -s -f $WORKDIR/sway/config $PREFIX/.config/sway/config
 
 echo "Installing Oh-my-tmux..."
 cd $PREFIX
