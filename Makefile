@@ -2,7 +2,7 @@ PREFIX=${HOME}
 PWD = $(shell pwd)
 
 .PHONY: all
-all: tmux sway vim
+all: tmux sway vim i3status
 
 
 .PHONY: deps
@@ -51,3 +51,10 @@ ${PREFIX}/.config/nvim: ${PREFIX}/.vim/colors
 
 ${PREFIX}/.vimrc:
 	ln -s -f ${PWD}/vim/vimrc ${PREFIX}/.vimrc
+
+.PHONY: i3status
+sway:  ${PREFIX}/.i3status.conf
+
+${PREFIX}/.i3status.conf:
+	ln -s -f ${PWD}/i3status/i3status.conf ${PREFIX}/.i3status.conf
+
