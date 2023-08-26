@@ -1,6 +1,10 @@
 #! /bin/bash
 set -e
 
+echo "======= WARNING ========"
+echo "The install.sh script is deprecated. Use `make` instead."
+echo "======= WARNING ========"
+
 WORKDIR=`pwd`
 PREFIX=~
 
