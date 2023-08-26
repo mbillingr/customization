@@ -101,6 +101,14 @@ input type:keyboard xkb_numlock enabled
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+#
+# Quality of Life
+#
+    # keycodes from from /usr/include/xkbcommon/xkbcommon-keysyms.h
+    bindsym --locked XF86MonBrightnessUp exec light -A 10
+    bindsym --locked XF86MonBrightnessDown exec light -U 10
+
 #
 # Moving around:
 #
