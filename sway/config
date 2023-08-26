@@ -67,6 +67,11 @@ input * {
 # I don't know if this is portable to other systems...
 #input 1:1:AT_Translated_Set_2_keyboar xkb_model "pc101"
 
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
 ### Key bindings
 #
 # Basics:
