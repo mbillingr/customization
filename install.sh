@@ -4,7 +4,7 @@ set -e
 WORKDIR=`pwd`
 PREFIX=~
 
-sudo pacman -S neovim tmux sway foot bemenu
+sudo pacman -S neovim tmux sway foot bemenu i3status
 
 #echo "Installing Oh-my-zsh..."
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
