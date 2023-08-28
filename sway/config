@@ -33,11 +33,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# work laptop display
-output eDP-1 pos 0 0 res 3840x2160 scale 2.0
+# work laptop display (looks like pos has to be compensated for scale, no negative pos!)
+output eDP-1 pos 1920 0 res 3840x2160 scale 2.0
 
-# home office monitor (looks like pos has to be compensated for scale)
-output HDMI-A-2 pos -1920 0 res 3840x2160 scale 2.0
+# home office monitor
+output HDMI-A-2 pos 0 0 res 3840x2160 scale 2.0
 
 ### Idle configuration
 #
