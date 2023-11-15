@@ -1,0 +1,17 @@
+# work laptop display (looks like pos has to be compensated for scale, no negative pos!)
+output eDP-1 pos 3840 1080 res 3840x2160 scale 2.0
+
+
+# office monitors
+output "Lenovo Group Limited P24h-10 VTK20715" pos 5760 1080 res 2560x1440 scale 1.0
+output "Lenovo Group Limited P24h-10 VTK20710" pos 8320 1080 res 2560x1440 scale 1.0
+
+  
+# home office monitor
+output "Samsung Electric Company U28E590 HTPKA09859" pos 0 0 res 3840x2160 scale 1.0
+
+
+# alternative dock
+output "Dell Inc. DELL P2319H 16QV623" pos 5760 1080 res 1920x1080 scale 1.0
+output "Dell Inc. DELL P2319H B6QV623" pos 7680 1080 res 1920x1080 scale 1.0
+
