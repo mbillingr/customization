@@ -7,7 +7,7 @@ all: tmux sway vim i3status
 
 .PHONY: deps
 deps:
-	sudo pacman -S neovim tmux sway foot bemenu j4-dmenu-desktop i3status slurp grim
+	sudo pacman -S neovim tmux sway foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard
 
 .PHONY: keyboard
 keyboard:
