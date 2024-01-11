@@ -246,6 +246,9 @@ bar {
     status_command i3status
 }
 
+# mark xwayland windows
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # machine dependent config
 include "local"
 
