@@ -121,6 +121,8 @@ input type:keyboard xkb_numlock enabled
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 
+    bindsym Print exec slurp | grim -g - - | wl-copy
+
 #
 # Moving around:
 #
