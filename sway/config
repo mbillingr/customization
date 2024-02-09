@@ -118,8 +118,8 @@ input type:keyboard xkb_numlock enabled
     # keycodes from from /usr/include/xkbcommon/xkbcommon-keysyms.h
     bindsym --locked XF86MonBrightnessUp exec light -A 10
     bindsym --locked XF86MonBrightnessDown exec light -U 10
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
     bindsym Print exec slurp | grim -g - - | wl-copy
 
