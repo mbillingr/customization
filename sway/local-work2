@@ -1,0 +1,13 @@
+# work laptop display (looks like pos has to be compensated for scale, no negative pos!)
+output "California Institute of Technology 0x160D Unknown" pos 5120 1200 res 1920x1200 scale 1.0
+
+# office left, right
+output "Lenovo Group Limited P24h-10 VTK20715" pos    0 1200 res 2560x1440 scale 1.0
+output "Lenovo Group Limited P24h-10 VTK20710" pos 2560 1200 res 2560x1440 scale 1.0
+
+# home office monitor
+output "Samsung Electric Company U28E590 HTPKA09859" pos 7040 0 res 3840x2160 scale 1.0
+
+# dock mareike
+output "Dell Inc. DELL P2319H 16QV623" pos 7040 1200 res 1920x1080 scale 1.0
+output "Dell Inc. DELL P2319H B6QV623" pos 8960 1200 res 1920x1080 scale 1.0
