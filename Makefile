@@ -62,7 +62,7 @@ ${PREFIX}/.i3status.conf:
 hyprland:  ${PREFIX}/.config/hypr/hyprland.conf
 
 ${PREFIX}/.config/hypr/hyprland.conf:
-	sudo pacman -S brightnessctl hyprland kitty otf-font-awesome ttf-meslo-nerd waybar wofi xdg-desktop-portal-wlr
+	sudo pacman -S brightnessctl hyprland kitty mako otf-font-awesome ttf-meslo-nerd waybar wofi xdg-desktop-portal-wlr
 	mkdir -p ${PREFIX}/.config/hypr
 	ln -s -f ${PWD}/hyprland/hyprland.conf ${PREFIX}/.config/hypr/hyprland.conf
 	ln -s -f ${PWD}/waybar ${PREFIX}/.config/waybar
