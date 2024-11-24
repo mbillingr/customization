@@ -2,7 +2,7 @@ PREFIX=${HOME}
 PWD = $(shell pwd)
 
 .PHONY: all
-all: tmux sway vim i3status
+all: helix tmux sway vim i3status
 
 
 .PHONY: deps
@@ -33,6 +33,14 @@ sway:  ${PREFIX}/.config/sway/config
 ${PREFIX}/.config/sway/config:
 	mkdir -p ${PREFIX}/.config/sway
 	ln -s -f ${PWD}/sway/config ${PREFIX}/.config/sway/config
+
+
+.PHONY: helix
+helix: ${PREFIX}/.config/helix/config.toml
+
+${PREFIX}/.config/helix/config.toml:
+	mkdir -p ${PREFIX}/.config/helix
+	ln -s -f ${PWD}/helix/config.toml ${PREFIX}/.config/helix/config.toml
 
 
 .PHONY: vim
