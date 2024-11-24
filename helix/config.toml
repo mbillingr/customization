@@ -1,0 +1,12 @@
+
+theme = "darcula-solid"
+
+[keys.normal]
+d = "move_char_left"
+h = "move_line_down"
+t = "move_line_up"
+n = "move_char_right"
+
+j = "delete_selection"
+l = "search_next"
+L = "search_prev"

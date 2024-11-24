@@ -1,9 +1,14 @@
 
-" remap cursor movement keys to dovark, and shift them to the right
-noremap h h
-noremap t j
-noremap n k
-noremap s l
+" remap cursor movement keys to dovark, and consequences
+" 'd'elete --> 'j'unk
+" 'n'ext --> 'l'ook
+noremap d h
+noremap h j
+noremap t k
+noremap n l
+noremap j d
+noremap l n
+noremap L N
 
 " self-explaining stuff
 colorscheme darcula

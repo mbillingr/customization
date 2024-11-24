@@ -377,15 +377,16 @@ setw -g pane-base-index 1
 bind \\ split-window -h
 bind - split-window -v
 
-# navigate panes with the hjkl keys like in vim, but remap to progammer dvorak and shift to the right
+# navigate panes with the hjkl keys like in vim, but remap to progammer dvorak
 unbind h
 unbind j
 unbind k
 unbind l
-bind h select-pane -L
-bind t select-pane -D
-bind n select-pane -U
-bind s select-pane -R
+bind d select-pane -L
+bind h select-pane -D
+bind t select-pane -U
+bind n select-pane -R
+bind j detach  # because we bind j to 'd'elete in vim, here it goes to 'd'etach for consistency
 
 # window resizing
 bind -r H resize-pane -L 1
