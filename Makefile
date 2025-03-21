@@ -7,7 +7,7 @@ all: helix tmux sway vim i3status
 
 .PHONY: deps
 deps:
-	sudo pacman -S neovim tmux sway foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard
+	sudo pacman --noconfirm -S neovim tmux sway helix foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard
 
 .PHONY: keyboard
 keyboard:
@@ -70,7 +70,7 @@ ${PREFIX}/.i3status.conf:
 hyprland:  ${PREFIX}/.config/hypr/hyprland.conf
 
 ${PREFIX}/.config/hypr/hyprland.conf:
-	sudo pacman -S brightnessctl hyprland kitty mako otf-font-awesome ttf-meslo-nerd waybar wofi xdg-desktop-portal-wlr
+	sudo pacman --noconfirm -S brightnessctl hyprland kitty mako nerd-fonts waybar wofi xdg-desktop-portal-wlr
 	mkdir -p ${PREFIX}/.config/hypr
 	ln -s -f ${PWD}/hyprland/hyprland.conf ${PREFIX}/.config/hypr/hyprland.conf
 	ln -s -f ${PWD}/waybar ${PREFIX}/.config/waybar
