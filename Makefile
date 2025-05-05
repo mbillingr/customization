@@ -14,6 +14,13 @@ keyboard:
 	keyboard/install.sh
 
 
+.PHONY: zsh
+zsh: ${PREFIX}/.zshrc.local
+
+${PREFIX}/.zshrc.local:
+	ln -s -f ${PWD}/zsh/zshrc.local ${PREFIX}/.zshrc.local
+
+
 .PHONY: tmux
 tmux: ${PREFIX}/.tmux.conf ${PREFIX}/.tmux.conf.local
 
