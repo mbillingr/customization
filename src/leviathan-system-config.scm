@@ -59,7 +59,13 @@
            (modify-services %desktop-services
              (guix-service-type config =>
                                 (guix-configuration
-                                  (inherit config))))))
+                                  (inherit config)
+                                  (substitute-urls
+                                    (append (list "https://substitutes.nonguix.org")
+                                            %default-substitute-urls))
+                                  (authorized-keys
+                                    (append (list (local-file "./nonguix-signing-key.pub"))
+                                            %default-authorized-guix-keys)))))))
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)
                 (targets (list "/boot/efi"))
