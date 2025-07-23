@@ -15,6 +15,12 @@
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg)
 
+(define SYSTEM-PACKAGES
+  '("screen"))
+
+(define HYPRLAND-PACKAGES
+  '("hyprland" "kitty"))
+
 (operating-system
   (kernel linux)
   (initrd microcode-initrd)
@@ -37,7 +43,9 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  (packages (append (map specification->package '("screen"))
+  (packages (append (map specification->package 
+                         (append SYSTEM-PACKAGES
+                                 HYPRLAND-PACKAGES))
                     %base-packages))
 
   ;; Below is the list of system services.  To search for available
@@ -57,6 +65,10 @@
            ;; This is the default list of services we
            ;; are appending to.
            (modify-services %desktop-services
+             (gdm-service-type config =>
+                               (gdm-configuration
+                                 (inherit config)
+                                 (wayland? #t)))
              (guix-service-type config =>
                                 (guix-configuration
                                   (inherit config)

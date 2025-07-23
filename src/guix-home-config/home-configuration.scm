@@ -12,10 +12,19 @@
              (gnu home services)
              (gnu home services shells))
 
+;; note: perl is needed for oh-my-tmux
+(define EVERYDAY-CLI-PACKAGES
+  '("helix" "git" "perl" "tmux"))
+
+(define HYPRLAND-PACKAGES
+  '("brightnessctl" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
+
 (home-environment
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
-  (packages (specifications->packages (list "git" "helix" "tmux" "perl")))
+  (packages (specifications->packages 
+              (append EVERYDAY-CLI-PACKAGES
+                      HYPRLAND-PACKAGES)))
 
   ;; Below is the list of Home services.  To search for available
   ;; services, run 'guix home search KEYWORD' in a terminal.
@@ -35,7 +44,10 @@
                                                 "bash_profile")))))
                  (simple-service 'test-config
                                  home-xdg-configuration-files-service-type
-                                 (list `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
+                                 (list `("hypr/hyprland.conf" ,(local-file "../files/hyprland.conf"))
+                                       `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
                                        `("tmux/tmux.conf.local" ,(local-file "../files/tmux.conf.local"))
+                                       `("waybar/config.jsonc" ,(local-file "../files/waybar-config.jsonc"))
+                                       `("waybar/style.css" ,(local-file "../files/waybar-style.css"))
                                  )))
            %base-home-services)))
