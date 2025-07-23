@@ -8,12 +8,14 @@
              (gnu packages)
              (gnu services)
              (guix gexp)
+             (guix git-download)
+             (gnu home services)
              (gnu home services shells))
 
 (home-environment
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
-  (packages (specifications->packages (list "git" "helix")))
+  (packages (specifications->packages (list "git" "helix" "tmux" "perl")))
 
   ;; Below is the list of Home services.  To search for available
   ;; services, run 'guix home search KEYWORD' in a terminal.
@@ -21,10 +23,8 @@
    (append (list (service home-zsh-service-type
                           (home-zsh-configuration
                             (zshrc (list (local-file
-                                           "/home/martin/src/guix-home-config/zshrc"
                                            "zshrc")
                                          (local-file
-                                           "/home/martin/src/guix-home-config/zshrc.local"
                                            "zshrc.local")))))
                  (service home-bash-service-type
                           (home-bash-configuration
@@ -32,9 +32,13 @@
                                       ("ll" . "ls -l")
                                       ("ls" . "ls -p --color=auto")))
                            (bashrc (list (local-file
-                                          "/home/martin/src/guix-home-config/bashrc"
                                           "bashrc")))
                            (bash-profile (list (local-file
-                                                "/home/martin/src/guix-home-config/bash_profile"
-                                                "bash_profile"))))))
+                                                "bash_profile")))))
+                 (simple-service 'test-config
+                                 home-xdg-configuration-files-service-type
+                                 (list `("test.conf" ,(plain-file "tmp-file.txt" "content"))
+                                       `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
+                                       `("tmux/tmux.conf.local" ,(local-file "../files/tmux/tmux.conf.local" "tmux.conf.local"))
+                                 )))
            %base-home-services)))

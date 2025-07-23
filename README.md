@@ -1,6 +1,10 @@
 # customization
 Config files, keyboard layout, checklists, ...all the stuff I like to carry from system to system.
 
+## Submodules
+
+Using git submodules now. Take care when cloning/updating!
+
 ## Installation
 
 1. clone this repository

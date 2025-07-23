@@ -1,0 +1,3 @@
+[submodule "src/3rd-party/tmux"]
+	path = src/3rd-party/tmux
+	url = https://github.com/gpakosz/.tmux.git
