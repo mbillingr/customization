@@ -22,10 +22,8 @@
   (services
    (append (list (service home-zsh-service-type
                           (home-zsh-configuration
-                            (zshrc (list (local-file
-                                           "zshrc")
-                                         (local-file
-                                           "zshrc.local")))))
+                            (zshrc (list (local-file "../3rd-party/zsh/zshrc")
+                                         (local-file "../files/zshrc.local")))))
                  (service home-bash-service-type
                           (home-bash-configuration
                            (aliases '(("grep" . "grep --color=auto")
@@ -37,8 +35,7 @@
                                                 "bash_profile")))))
                  (simple-service 'test-config
                                  home-xdg-configuration-files-service-type
-                                 (list `("test.conf" ,(plain-file "tmp-file.txt" "content"))
-                                       `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
-                                       `("tmux/tmux.conf.local" ,(local-file "../files/tmux/tmux.conf.local" "tmux.conf.local"))
+                                 (list `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
+                                       `("tmux/tmux.conf.local" ,(local-file "../files/tmux.conf.local"))
                                  )))
            %base-home-services)))
