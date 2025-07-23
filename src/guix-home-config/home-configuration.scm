@@ -44,7 +44,8 @@
                                                 "bash_profile")))))
                  (simple-service 'test-config
                                  home-xdg-configuration-files-service-type
-                                 (list `("hypr/hyprland.conf" ,(local-file "../files/hyprland.conf"))
+                                 (list `("helix/config.toml" ,(local-file "../files/helix-config.toml"))
+                                       `("hypr/hyprland.conf" ,(local-file "../files/hyprland.conf"))
                                        `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
                                        `("tmux/tmux.conf.local" ,(local-file "../files/tmux.conf.local"))
                                        `("waybar/config.jsonc" ,(local-file "../files/waybar-config.jsonc"))
