@@ -9,9 +9,13 @@
 
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
-(use-modules (gnu)
+(use-modules (guix channels)
+             (gnu)
              (gnu packages shells)
+             (gnu packages package-management)             
              (nongnu packages linux)
+             (nongnu packages nvidia)
+             (nongnu services nvidia)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg)
 
@@ -21,10 +25,24 @@
 (define HYPRLAND-PACKAGES
   '("hyprland" "kitty"))
 
+(define CHANNELS
+  (append
+    (list (channel
+            (name 'nonguix)
+            (url "https://gitlab.com/nonguix/nonguix")
+            (introduction
+              (make-channel-introduction
+                "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
+                (openpgp-fingerprint
+                  "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5")))))
+    %default-channels))
+
 (operating-system
   (kernel linux)
   (initrd microcode-initrd)
   (firmware (list linux-firmware))
+  (kernel-arguments '("modprobe.blacklist=nouveau"
+                      "nvidia_drm.modeset=1"))
   (locale "en_US.utf8")
   (timezone "Europe/Vienna")
   (keyboard-layout (keyboard-layout "us" "dvp"))
@@ -52,13 +70,16 @@
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
    (append (list (service gnome-desktop-service-type)
+                 (service nvidia-service-type)
 
                  ;; To configure OpenSSH, pass an 'openssh-configuration'
                  ;; record as a second argument to 'service' below.
                  (service openssh-service-type)
                 
                  (set-xorg-configuration
-                  (xorg-configuration (keyboard-layout keyboard-layout)))
+                  (xorg-configuration (keyboard-layout keyboard-layout)
+                                      (modules (cons nvda %default-xorg-modules))
+                                      (drivers '("nvidia"))))
 
                  (simple-service 'dummy-profile etc-service-type `(("profile.d/00-dummy.sh" ,(plain-file "dummy.sh" "")))))
 
@@ -72,6 +93,8 @@
              (guix-service-type config =>
                                 (guix-configuration
                                   (inherit config)
+                                  (channels CHANNELS)
+                                  (guix (guix-for-channels CHANNELS))
                                   (substitute-urls
                                     (append (list "https://substitutes.nonguix.org")
                                             %default-substitute-urls))
