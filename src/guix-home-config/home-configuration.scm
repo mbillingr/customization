@@ -16,6 +16,9 @@
 (define EVERYDAY-CLI-PACKAGES
   '("helix" "git" "perl" "tmux"))
 
+(define EVERYDAY-GUI-PACKAGES
+  '("icecat" "mesa" "mesa-utils"))
+
 (define HYPRLAND-PACKAGES
   '("brightnessctl" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
 
@@ -24,6 +27,7 @@
   ;; Home profile, under ~/.guix-home/profile.
   (packages (specifications->packages 
               (append EVERYDAY-CLI-PACKAGES
+                      EVERYDAY-GUI-PACKAGES
                       HYPRLAND-PACKAGES)))
 
   ;; Below is the list of Home services.  To search for available

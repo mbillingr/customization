@@ -12,7 +12,7 @@
 (use-modules (guix channels)
              (gnu)
              (gnu packages shells)
-             (gnu packages package-management)             
+             (gnu packages package-management)
              (nongnu packages linux)
              (nongnu packages nvidia)
              (nongnu services nvidia)
