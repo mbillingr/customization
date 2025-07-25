@@ -119,4 +119,9 @@
                          (mount-point "/boot/efi")
                          (device (uuid "46AF-D043"
                                        'fat32))
-                         (type "vfat")) %base-file-systems)))
+                         (type "vfat"))
+                       (file-system
+                         (mount-point "/mnt/hdd")
+                         (device (uuid "40c70d62-2862-41d4-8dd3-fc9c1984224a" 'ext4))
+                         (type "ext4"))
+                       %base-file-systems)))
