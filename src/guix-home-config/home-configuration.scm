@@ -19,10 +19,10 @@
   '("helix" "git" "perl" "tmux"))
 
 (define EVERYDAY-GUI-PACKAGES
-  '("icecat"))
+  '("flatpak" "icecat"))
 
 (define GPU_PACKAGES
-  '("mesa-utils" "steam"))
+  '("mesa-utils"))
 
 (define HYPRLAND-PACKAGES
   '("brightnessctl" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
