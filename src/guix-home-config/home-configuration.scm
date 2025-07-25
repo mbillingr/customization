@@ -4,37 +4,54 @@
 ;; need to capture the channels being used, as returned by "guix describe".
 ;; See the "Replicating Guix" section in the manual.
 
-(use-modules (gnu home)
+(use-modules (guix gexp)
+             (nonguix utils)
+             (gnu home)
              (gnu packages)
+             (gnu packages gl)
              (gnu services)
-             (guix gexp)
-             (guix git-download)
              (gnu home services)
-             (gnu home services shells))
+             (gnu home services shells)
+             (nongnu packages nvidia))
 
 ;; note: perl is needed for oh-my-tmux
 (define EVERYDAY-CLI-PACKAGES
   '("helix" "git" "perl" "tmux"))
 
 (define EVERYDAY-GUI-PACKAGES
-  '("icecat" "mesa" "mesa-utils"))
+  '("icecat"))
+
+(define GPU_PACKAGES
+  '("mesa-utils" "steam"))
 
 (define HYPRLAND-PACKAGES
   '("brightnessctl" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
 
+(define (my-replace-mesa obj)
+  (with-transformation
+    (package-input-grafting
+      `((,mesa . ,nvda)
+        (,nvidia-driver . ,nvda)))
+    obj))
+
 (home-environment
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
-  (packages (specifications->packages 
-              (append EVERYDAY-CLI-PACKAGES
-                      EVERYDAY-GUI-PACKAGES
-                      HYPRLAND-PACKAGES)))
+  (packages (append
+              (specifications->packages
+                (append EVERYDAY-CLI-PACKAGES
+                        EVERYDAY-GUI-PACKAGES
+                        HYPRLAND-PACKAGES))
+              (map my-replace-mesa (specifications->packages GPU_PACKAGES))))
 
   ;; Below is the list of Home services.  To search for available
   ;; services, run 'guix home search KEYWORD' in a terminal.
   (services
    (append (list (service home-zsh-service-type
                           (home-zsh-configuration
+                            (environment-variables
+                              '(("__NV_PRIME_RENDER_OFFLOAD" . "1")
+                                ("__GLX_VENDOR_LIBRARY_NAME" . "nvidia")))
                             (zshrc (list (local-file "../3rd-party/zsh/zshrc")
                                          (local-file "../files/zshrc.local")))))
                  (service home-bash-service-type
