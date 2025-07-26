@@ -12,14 +12,18 @@
              (gnu services)
              (gnu home services)
              (gnu home services shells)
+             (gnu home services syncthing)
              (nongnu packages nvidia))
 
 ;; note: perl is needed for oh-my-tmux
 (define EVERYDAY-CLI-PACKAGES
   '("helix" "git" "perl" "tmux"))
 
+(define GUIX-HACKING-PACKAGES
+  '("emacs" "guile" "emacs-geiser" "emacs-geiser-guile"))
+
 (define EVERYDAY-GUI-PACKAGES
-  '("flatpak" "icecat"))
+  '("flatpak" "icecat" "keepassxc"))
 
 (define GPU_PACKAGES
   '("mesa-utils"))
@@ -39,9 +43,10 @@
   ;; Home profile, under ~/.guix-home/profile.
   (packages (append
               (specifications->packages
-                (append EVERYDAY-CLI-PACKAGES
-                        EVERYDAY-GUI-PACKAGES
-                        HYPRLAND-PACKAGES))
+               (append GUIX-HACKING-PACKAGES
+		       EVERYDAY-CLI-PACKAGES
+                       EVERYDAY-GUI-PACKAGES
+                       HYPRLAND-PACKAGES))
               (map my-replace-mesa (specifications->packages GPU_PACKAGES))))
 
   ;; Below is the list of Home services.  To search for available
@@ -65,11 +70,22 @@
                                                 "bash_profile")))))
                  (simple-service 'test-config
                                  home-xdg-configuration-files-service-type
-                                 (list `("helix/config.toml" ,(local-file "../files/helix-config.toml"))
+                                 (list `("emacs/init.el" ,(local-file "../files/emacs-init.el"))
+                                       `("helix/config.toml" ,(local-file "../files/helix-config.toml"))
                                        `("hypr/hyprland.conf" ,(local-file "../files/hyprland.conf"))
                                        `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
                                        `("tmux/tmux.conf.local" ,(local-file "../files/tmux.conf.local"))
                                        `("waybar/config.jsonc" ,(local-file "../files/waybar-config.jsonc"))
-                                       `("waybar/style.css" ,(local-file "../files/waybar-style.css"))
-                                 )))
+                                       `("waybar/style.css" ,(local-file "../files/waybar-style.css"))))
+                (service home-files-service-type
+                         `((".local/bin/guix-guile"
+                            ,(computed-file
+                               "guix-guile"
+                               (with-imported-modules
+                                 '((guix build utils))
+                                 #~(begin
+                                     (use-modules (guix build utils))
+                                     (copy-file #$(local-file "../files/guix-guile") #$output)
+                                     (chmod #$output #o555)))))))
+                (service home-syncthing-service-type))
            %base-home-services)))
