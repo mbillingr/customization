@@ -4,6 +4,8 @@
 ;; need to capture the channels being used, as returned by "guix describe".
 ;; See the "Replicating Guix" section in the manual.
 
+(add-to-load-path (dirname (current-filename)))
+
 (use-modules (guix gexp)
              (nonguix utils)
              (gnu home)
@@ -13,11 +15,15 @@
              (gnu home services)
              (gnu home services shells)
              (gnu home services syncthing)
+             (my-packages jj)
              (nongnu packages nvidia))
+
+(display jujutsu)
+(display (specification->package "helix"))
 
 ;; note: perl is needed for oh-my-tmux
 (define EVERYDAY-CLI-PACKAGES
-  '("helix" "git" "perl" "tmux"))
+  `("git" "helix" ,jujutsu "perl" "tmux"))
 
 (define GUIX-HACKING-PACKAGES
   '("emacs" "guile" "emacs-geiser" "emacs-geiser-guile"))
@@ -38,16 +44,21 @@
         (,nvidia-driver . ,nvda)))
     obj))
 
+(define (ensure-package pkg)
+  (cond 
+    ((string? pkg) (specification->package pkg))
+    (else pkg)))
+
 (home-environment
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
   (packages (append
-              (specifications->packages
+              (map ensure-package
                (append GUIX-HACKING-PACKAGES
-		       EVERYDAY-CLI-PACKAGES
+                       EVERYDAY-CLI-PACKAGES
                        EVERYDAY-GUI-PACKAGES
                        HYPRLAND-PACKAGES))
-              (map my-replace-mesa (specifications->packages GPU_PACKAGES))))
+              (map my-replace-mesa (map ensure-package GPU_PACKAGES))))
 
   ;; Below is the list of Home services.  To search for available
   ;; services, run 'guix home search KEYWORD' in a terminal.
@@ -57,26 +68,26 @@
                             (environment-variables
                               '(("__NV_PRIME_RENDER_OFFLOAD" . "1")
                                 ("__GLX_VENDOR_LIBRARY_NAME" . "nvidia")))
-                            (zshrc (list (local-file "../3rd-party/zsh/zshrc")
-                                         (local-file "../files/zshrc.local")))))
+                            (zshrc (list (local-file "3rd-party/zsh/zshrc")
+                                         (local-file "files/zshrc.local")))))
                  (service home-bash-service-type
                           (home-bash-configuration
                            (aliases '(("grep" . "grep --color=auto")
                                       ("ll" . "ls -l")
                                       ("ls" . "ls -p --color=auto")))
                            (bashrc (list (local-file
-                                          "bashrc")))
+                                          "files/bashrc")))
                            (bash-profile (list (local-file
-                                                "bash_profile")))))
+                                                "files/bash_profile")))))
                  (simple-service 'test-config
                                  home-xdg-configuration-files-service-type
-                                 (list `("emacs/init.el" ,(local-file "../files/emacs-init.el"))
-                                       `("helix/config.toml" ,(local-file "../files/helix-config.toml"))
-                                       `("hypr/hyprland.conf" ,(local-file "../files/hyprland.conf"))
-                                       `("tmux/tmux.conf" ,(local-file "../3rd-party/tmux/.tmux.conf" "tmux.conf"))
-                                       `("tmux/tmux.conf.local" ,(local-file "../files/tmux.conf.local"))
-                                       `("waybar/config.jsonc" ,(local-file "../files/waybar-config.jsonc"))
-                                       `("waybar/style.css" ,(local-file "../files/waybar-style.css"))))
+                                 (list `("emacs/init.el" ,(local-file "files/emacs-init.el"))
+                                       `("helix/config.toml" ,(local-file "files/helix-config.toml"))
+                                       `("hypr/hyprland.conf" ,(local-file "files/hyprland.conf"))
+                                       `("tmux/tmux.conf" ,(local-file "3rd-party/tmux/.tmux.conf" "tmux.conf"))
+                                       `("tmux/tmux.conf.local" ,(local-file "files/tmux.conf.local"))
+                                       `("waybar/config.jsonc" ,(local-file "files/waybar-config.jsonc"))
+                                       `("waybar/style.css" ,(local-file "files/waybar-style.css"))))
                 (service home-files-service-type
                          `((".local/bin/guix-guile"
                             ,(computed-file
@@ -85,7 +96,7 @@
                                  '((guix build utils))
                                  #~(begin
                                      (use-modules (guix build utils))
-                                     (copy-file #$(local-file "../files/guix-guile") #$output)
+                                     (copy-file #$(local-file "files/guix-guile") #$output)
                                      (chmod #$output #o555)))))))
                 (service home-syncthing-service-type))
            %base-home-services)))

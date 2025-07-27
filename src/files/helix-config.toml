@@ -1,6 +1,9 @@
 
 theme = "darcula-solid"
 
+[editor]
+true-color = true
+
 [keys.normal]
 d = "move_char_left"
 h = "move_line_down"
