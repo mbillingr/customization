@@ -15,15 +15,12 @@
              (gnu home services)
              (gnu home services shells)
              (gnu home services syncthing)
-             (my-packages jj)
              (nongnu packages nvidia))
 
-(display jujutsu)
-(display (specification->package "helix"))
 
 ;; note: perl is needed for oh-my-tmux
 (define EVERYDAY-CLI-PACKAGES
-  `("git" "helix" ,jujutsu "perl" "tmux"))
+  `("git" "helix" "jujutsu" "perl" "tmux"))
 
 (define GUIX-HACKING-PACKAGES
   '("emacs" "guile" "emacs-geiser" "emacs-geiser-guile"))
