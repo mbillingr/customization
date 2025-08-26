@@ -32,7 +32,7 @@
   '("mesa-utils"))
 
 (define HYPRLAND-PACKAGES
-  '("brightnessctl" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
+  '("brightnessctl" "font-awesome" "kitty" "mako" "waybar" "wofi" "xdg-desktop-portal-wlr"))
 
 (define (my-replace-mesa obj)
   (with-transformation
