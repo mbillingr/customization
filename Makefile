@@ -2,12 +2,12 @@ PREFIX=${HOME}
 PWD = $(shell pwd)
 
 .PHONY: all
-all: helix tmux sway vim i3status mc
+all: helix tmux hyprland mc vim i3status mc
 
 
 .PHONY: deps
 deps:
-	sudo pacman --noconfirm -S neovim tmux sway helix foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard
+	sudo pacman --noconfirm -S base-devel tmux helix neovim foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard mc
 
 .PHONY: keyboard
 keyboard:
