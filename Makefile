@@ -7,7 +7,7 @@ all: helix tmux hyprland mc vim i3status mc
 
 .PHONY: deps
 deps:
-	sudo pacman --noconfirm -S base-devel tmux helix neovim foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard mc
+	sudo pacman --noconfirm -S base-devel tmux helix neovim fastfetch foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard mc
 
 .PHONY: keyboard
 keyboard:
