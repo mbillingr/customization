@@ -2,12 +2,12 @@ PREFIX=${HOME}
 PWD = $(shell pwd)
 
 .PHONY: all
-all: helix tmux hyprland mc vim i3status mc zsh
+all: helix tmux hyprland mc vim i3status mc starship zsh
 
 
 .PHONY: deps
 deps:
-	sudo pacman --noconfirm -S base-devel tmux helix neovim fastfetch foot bemenu j4-dmenu-desktop i3status slurp grim wl-clipboard mc pamixer
+	sudo pacman --noconfirm -S base-devel tmux helix neovim fastfetch foot bemenu j4-dmenu-desktop i3status slurp starship grim wl-clipboard mc pamixer noto-fonts noto-fonts-emoji
 
 .PHONY: keyboard
 keyboard:
@@ -19,6 +19,13 @@ zsh: ${PREFIX}/.zshrc.local
 
 ${PREFIX}/.zshrc.local:
 	ln -s -f ${PWD}/zsh/zshrc.local ${PREFIX}/.zshrc.local
+
+# Make sure a font with emojis is installed
+.PHONY: starship
+starship: ${PREFIX}/.config/starship.toml
+
+${PREFIX}/.config/starship.toml:
+	ln -s -f ${PWD}/starship/starship.toml ${PREFIX}/.config/starship.toml
 
 
 .PHONY: tmux

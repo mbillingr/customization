@@ -6,3 +6,8 @@ bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
 bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
 fastfetch
+
+# set prompt to default before loading starship
+prompt default
+
+eval "$(starship init zsh)"
