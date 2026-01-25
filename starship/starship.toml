@@ -105,6 +105,7 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
+"~" = "󰋜"
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
@@ -116,6 +117,8 @@ truncation_symbol = "…/"
 "api" = "󱂛"
 "tests" = "󰙨"
 "data" = ""
+"aur" = "󰣇"
+"sync" = ""
 
 [aws]
 symbol = " "
