@@ -1,0 +1,418 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """[░▒▓](#a3aed2)\
+$os\
+[](bg:#769ff0 fg:#a3aed2)\
+$username\
+$hostname\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$hg_state\
+[](fg:#394260 bg:#212736)\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$gleam\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$nats\
+$direnv\
+$env_var\
+$mise\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$netns\
+$shell\
+$character"""
+
+[os]
+disabled = false
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $symbol ]($style)"
+
+[directory]
+style = "fg:#090c0c bg:#769ff0"
+read_only = " 󰌾"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"nursery" = "󱦋"
+"git-working" = ""
+"jj-working" = "󰴉"
+"sandbox" = "󱖥"
+"api" = "󱂛"
+"tests" = "󰙨"
+"data" = ""
+
+[aws]
+symbol = " "
+
+[buf]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[bun]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[cmake]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[cmd_duration]
+style = "bg:#1d2230 fg:#a0a9cb"
+format = '[  $duration ]($style)'
+
+[conda]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[crystal]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[dart]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[deno]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[fennel]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[fortran]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = " "
+
+[git_branch]
+symbol = " "
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_commit]
+style = "fg:#769ff0 bg:#394260"
+tag_symbol = '  '
+format = '[\($hash$tag\) ]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[gradle]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[guix_shell]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[haxe]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[hg_branch]
+symbol = " "
+style = "bg:#394260"
+format = '[[ $symbol $branch(:$topic) ](fg:#769ff0 bg:#394260)]($style)'
+
+[hostname]
+style = "fg:#e3e5e5 bg:#769ff0"
+ssh_symbol = " "
+format = '[$ssh_symbol$hostname](bold $style)[ in ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[lua]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[nix_shell]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[ocaml]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
+
+[package]
+symbol = "󰏗 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol$version ]($style)'
+
+[perl]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[php]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[rlang]
+symbol = "󰟔 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[ruby]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[status]
+symbol = " "
+
+[username]
+style_user = "bold fg:#e3e5e5 bg:#769ff0"
+style_root = "bold fg:#cc0000 bg:#769ff0"
+format = '[$user]($style)[ in ](fg:#e3e5e5 bg:#769ff0)'
+
+[swift]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[xmake]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
+
+[zig]
+symbol = " "
+style = "bg:#212736 fg:#769ff0"
+format = '[ $symbol($version) ]($style)'
