@@ -89,11 +89,11 @@ ${PREFIX}/.i3status.conf:
 	ln -s -f ${PWD}/i3status/i3status.conf ${PREFIX}/.i3status.conf
 
 .PHONY: hyprland
-hyprland:  ${PREFIX}/.config/hypr/hyprland.conf
+hyprland:  ${PREFIX}/.config/hypr/hyprland.lua
 
-${PREFIX}/.config/hypr/hyprland.conf:
+${PREFIX}/.config/hypr/hyprland.lua:
 	sudo pacman --noconfirm -S brightnessctl hyprland kitty mako nerd-fonts waybar wofi xdg-desktop-portal-wlr
 	mkdir -p ${PREFIX}/.config/hypr
-	ln -s -f ${PWD}/hyprland/hyprland.conf ${PREFIX}/.config/hypr/hyprland.conf
+	ln -s -f ${PWD}/hyprland/hyprland.lua ${PREFIX}/.config/hypr/hyprland.lua
 	ln -s -f ${PWD}/waybar ${PREFIX}/.config/waybar
 
