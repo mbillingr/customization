@@ -81,7 +81,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Startup
 hl.on("hyprland.start", function()
   hl.exec_cmd("waybar")
-  hl.exec_cmd("wvkbd-mobintl")
+  --hl.exec_cmd("wvkbd-mobintl")
 end)
 
 hl.config({
