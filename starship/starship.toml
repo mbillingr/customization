@@ -138,10 +138,10 @@ symbol = " "
 style = "bg:#212736 fg:#769ff0"
 format = '[ $symbol($version) ]($style)'
 
-[cpp]
-symbol = " "
-style = "bg:#212736 fg:#769ff0"
-format = '[ $symbol($version) ]($style)'
+#[cpp]
+#symbol = " "
+#style = "bg:#212736 fg:#769ff0"
+#format = '[ $symbol($version) ]($style)'
 
 [cmake]
 symbol = " "
@@ -190,10 +190,10 @@ symbol = " "
 style = "bg:#212736 fg:#769ff0"
 format = '[ $symbol($version) ]($style)'
 
-[fortran]
-symbol = " "
-style = "bg:#212736 fg:#769ff0"
-format = '[ $symbol($version) ]($style)'
+#[fortran]
+#symbol = " "
+#style = "bg:#212736 fg:#769ff0"
+#format = '[ $symbol($version) ]($style)'
 
 [fossil_branch]
 symbol = " "
@@ -367,10 +367,10 @@ format = '[ $symbol($version) ]($style)'
 [pijul_channel]
 symbol = " "
 
-[pixi]
-symbol = "󰏗 "
-style = "bg:#212736 fg:#769ff0"
-format = '[ $symbol($version) ]($style)'
+#[pixi]
+#symbol = "󰏗 "
+#style = "bg:#212736 fg:#769ff0"
+#format = '[ $symbol($version) ]($style)'
 
 [python]
 symbol = " "
@@ -410,10 +410,10 @@ symbol = " "
 style = "bg:#212736 fg:#769ff0"
 format = '[ $symbol($version) ]($style)'
 
-[xmake]
-symbol = " "
-style = "bg:#212736 fg:#769ff0"
-format = '[ $symbol($version) ]($style)'
+#[xmake]
+#symbol = " "
+#style = "bg:#212736 fg:#769ff0"
+#format = '[ $symbol($version) ]($style)'
 
 [zig]
 symbol = " "

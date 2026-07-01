@@ -21,36 +21,6 @@ hl.monitor({
   scale = 1.5,
 })
 
--- Büro aktuell
-hl.monitor({
-  output = "desc:Lenovo Group Limited LEN P24h-20 V3066F5P",
-  mode = "preferred",
-  position = "4480x0",
-  scale = 1,
-})
-
-hl.monitor({
-  output = "desc:Lenovo Group Limited LEN P24h-20 V3066F7K",
-  mode = "preferred",
-  position = "1920x0",
-  scale = 1,
-})
-
--- Büro alt
-hl.monitor({
-  output = "desc:Lenovo Group Limited LEN P24h-20 V3066GKT",
-  mode = "preferred",
-  position = "-2560x0",
-  scale = 1,
-})
-
-hl.monitor({
-  output = "desc:Lenovo Group Limited LEN P24h-20 V3066F8L",
-  mode = "preferred",
-  position = "-5120x0",
-  scale = 1,
-})
-
 -- Mareike Dock
 hl.monitor({
   output = "desc:Dell Inc. DELL P2319H B6QV623",
@@ -81,6 +51,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Startup
 hl.on("hyprland.start", function()
   hl.exec_cmd("waybar")
+  hl.exec_cmd("hyprpaper")
   --hl.exec_cmd("wvkbd-mobintl")
 end)
 

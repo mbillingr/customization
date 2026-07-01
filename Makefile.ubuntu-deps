@@ -1,0 +1,9 @@
+PREFIX=${HOME}
+PWD = $(shell pwd)
+
+.PHONY: all
+all:
+	sudo apt install -y tmux hx neovim fastfetch foot bemenu j4-dmenu-desktop i3status slurp starship grim wl-clipboard mc pamixer fonts-noto fonts-noto-color-emoji
+	#sudo pacman --noconfirm -S brightnessctl hyprland hyprlock kitty mako nerd-fonts waybar wofi xdg-desktop-portal-wlr
+	sudo apt install -y brightnessctl hyprland hyprlock kitty mako-notifier waybar wofi xdg-desktop-portal-wlr
+

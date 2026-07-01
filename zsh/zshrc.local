@@ -5,6 +5,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
 bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
+path+=('/home/martin/.cargo/bin')
+
 fastfetch
 
 # set prompt to default before loading starship
