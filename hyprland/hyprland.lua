@@ -21,6 +21,14 @@ hl.monitor({
   scale = 1.5,
 })
 
+hl.monitor({
+  -- work laptop
+  output = "desc:Lenovo Group Limited ATNA40HQ10-0",
+  mode = "preferred",
+  position = "0x0",
+  scale = 1.5,
+})
+
 -- Mareike Dock
 hl.monitor({
   output = "desc:Dell Inc. DELL P2319H B6QV623",
