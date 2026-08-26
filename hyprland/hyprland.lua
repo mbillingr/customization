@@ -191,6 +191,10 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "r" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "d" }))
 
+-- Move workspace between monitors
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.workspace.move({ monitor = "-1" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.workspace.move({ monitor = "+1" }))
+
 -- Switch workspaces with mainMod + F1-F10
 hl.bind(mainMod .. " + F1", hl.dsp.focus({ workspace = "1" }))
 hl.bind(mainMod .. " + F2", hl.dsp.focus({ workspace = "2" }))

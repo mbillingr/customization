@@ -4,6 +4,13 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# -- added by me
+
+# make shift+enter claude prompts work
+set -s extended-keys always
+set -as terminal-features 'xterm*:extkeys'
+
+
 
 # -- windows & pane creation ---------------------------------------------------
 
