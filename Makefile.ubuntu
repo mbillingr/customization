@@ -81,3 +81,10 @@ ${PREFIX}/.config/hypr/hyprland.lua:
 ${PREFIX}/.config/hypr/hyprlock.conf:
 	mkdir -p ${PREFIX}/.config/hypr
 	ln -s -f ${PWD}/hyprland/hyprlock.conf ${PREFIX}/.config/hypr/hyprlock.conf
+
+.PHONY: atuin
+atuin: ${PREFIX}/.config/atuin/config.toml
+
+${PREFIX}/.config/atuin/config.toml:
+	mkdir -p ${PREFIX}/.config/atuin
+	ln -s - {PWD}/atuin/atuin.conf ${PREFIX}/.config/atuin/config.toml
