@@ -13,3 +13,6 @@ fastfetch
 prompt default
 
 eval "$(starship init zsh)"
+
+# jj dynamic completion
+source <(COMPLETE=zsh jj)
