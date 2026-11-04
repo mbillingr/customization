@@ -206,6 +206,8 @@ hl.bind(mainMod .. " + F7", hl.dsp.focus({ workspace = "7" }))
 hl.bind(mainMod .. " + F8", hl.dsp.focus({ workspace = "8" }))
 hl.bind(mainMod .. " + F9", hl.dsp.focus({ workspace = "9" }))
 hl.bind(mainMod .. " + F10", hl.dsp.focus({ workspace = "10" }))
+hl.bind(mainMod .. " + F11", hl.dsp.focus({ workspace = "11" }))
+hl.bind(mainMod .. " + F12", hl.dsp.focus({ workspace = "12" }))
 
 -- Move active window to a workspace with mainMod + SHIFT + F1-F10/F11
 hl.bind(mainMod .. " + SHIFT + F1", hl.dsp.window.move({ window = "active", workspace = "1" }))
@@ -217,7 +219,9 @@ hl.bind(mainMod .. " + SHIFT + F6", hl.dsp.window.move({ window = "active", work
 hl.bind(mainMod .. " + SHIFT + F7", hl.dsp.window.move({ window = "active", workspace = "7" }))
 hl.bind(mainMod .. " + SHIFT + F8", hl.dsp.window.move({ window = "active", workspace = "8" }))
 hl.bind(mainMod .. " + SHIFT + F9", hl.dsp.window.move({ window = "active", workspace = "9" }))
-hl.bind(mainMod .. " + SHIFT + F11", hl.dsp.window.move({ window = "active", workspace = "10" }))
+hl.bind(mainMod .. " + SHIFT + F10", hl.dsp.window.move({ window = "active", workspace = "10" }))
+hl.bind(mainMod .. " + SHIFT + F11", hl.dsp.window.move({ window = "active", workspace = "11" }))
+hl.bind(mainMod .. " + SHIFT + F12", hl.dsp.window.move({ window = "active", workspace = "12" }))
 
 -- Special workspace / scratchpad
 --hl.bind(mainMod .. " + S", hl.dsp.raw("togglespecialworkspace magic"))
@@ -240,8 +244,8 @@ hl.bind("xf86KbdBrightnessUp", hl.dsp.exec_cmd("brightnessctl -d *::kbd_backligh
 hl.bind("xf86KbdBrightnessDown", hl.dsp.exec_cmd("brightnessctl -d *::kbd_backlight set 33%-"))
 
 -- Volume and Media Control
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pamixer --default-source -m"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
