@@ -50,6 +50,8 @@ hl.monitor({
   mode = "preferred",
   position = "-7680x-960",
   scale = 1,
+  --bitdepth = 10,
+  --cm = "hdr",
 })
 
 hl.monitor({
