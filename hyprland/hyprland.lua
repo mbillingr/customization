@@ -44,6 +44,21 @@ hl.monitor({
   scale = 1,
 })
 
+-- Work Dock (left of the laptop, bottom-aligned; laptop stays at 0x0)
+hl.monitor({
+  output = "desc:BNQ BenQ EW3270U S2M05023019",
+  mode = "preferred",
+  position = "-7680x-960",
+  scale = 1,
+})
+
+hl.monitor({
+  output = "desc:BNQ BenQ EW3270U S2M05040019",
+  mode = "preferred",
+  position = "-3840x-960",
+  scale = 1,
+})
+
 -- Fallback Default
 hl.monitor({
   output = "",
